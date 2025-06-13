@@ -9,12 +9,12 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome';
 import EntypoIcon from 'react-native-vector-icons/Entypo';
 import {useNavigation, useRoute} from '@react-navigation/native';
-import {useDeviceId} from 'shared-logic';
+import {useDeviceId} from '../shared-logic';
 import dayjs from 'dayjs';
 import color from '../config/color';
 // @ts-ignore
 import ToggleSwitch from 'toggle-switch-react-native';
-import {updateDeviceInfo} from "shared-logic/src";
+import {updateDeviceInfo} from "../shared-logic";
 import {useMutation, useQueryCache} from 'react-query';
 // @ts-ignore
 import Spinner from 'react-native-loading-spinner-overlay';

@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import {SearchView} from '../components/Report/SearchView';
 import {ScrollView} from 'react-native';
-import {getReportList} from 'shared-logic/src/api/report';
+import {getReportList} from '../shared-logic/api/report';
 import {ResultView} from "../components/Report/ResultView";
 import MapPosition from "../components/Report/MapPosition";
-import {Report} from "shared-logic";
+import {Report} from "../shared-logic";
 
 export const AreaReport = () => {
   const [dataList, setDataList] = useState([]);

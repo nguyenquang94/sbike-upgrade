@@ -1,19 +1,18 @@
-import React, {useMemo} from 'react';
-import {useAuthState} from '../../context/auth-context';
-import useDeviceCompany from 'shared-logic/src/hooks/useDeviceCompany';
-// @ts-ignore
-import {Dropdown} from 'react-native-material-dropdown';
-import {View} from 'react-native';
+import React, { useMemo } from "react";
+import { useAuthState } from "../../context/auth-context";
+import useDeviceCompany from "../../shared-logic/hooks/useDeviceCompany";
+import { Dropdown } from "react-native-element-dropdown";
+import { View } from "react-native";
 
 export interface Props {
   onPress?: (id: string) => void;
   deviceChoice?: string;
 }
 
-export const SearchDevice: React.FC<Props> = ({onPress, deviceChoice}) => {
-  const {state} = useAuthState();
+export const SearchDevice: React.FC<Props> = ({ onPress, deviceChoice }) => {
+  const { state } = useAuthState();
   const userInfo = state?.userData;
-  const {data} = useDeviceCompany(userInfo?.companyID);
+  const { data } = useDeviceCompany(userInfo?.companyID);
   const deviceData = data?.data;
   const optionList = useMemo(() => {
     return deviceData?.map((device) => {
@@ -29,24 +28,36 @@ export const SearchDevice: React.FC<Props> = ({onPress, deviceChoice}) => {
       style={{
         width: 150,
         borderWidth: 1,
-        borderColor: 'black',
+        borderColor: "black",
         borderRadius: 5,
         padding: 5,
         height: 43,
-        justifyContent: "center"
-      }}>
+        justifyContent: "center",
+      }}
+    >
       <Dropdown
-        label={''}
-        baseColor={'black'}
-        labelHeight={18}
-        fontSize={16}
-        labelFontSize={0}
-        data={optionList}
-        itemColor={'#CCCCCC'}
-        textColor={'#333333'}
+        data={optionList || []}
+        labelField="label"
+        valueField="value"
         value={deviceChoice}
-        onChangeText={(value: string) => {
-          onPress && onPress(value);
+        style={{
+          borderColor: "#999",
+          borderWidth: 1,
+          borderRadius: 8,
+          paddingHorizontal: 12,
+          height: 50,
+        }}
+        placeholder=""
+        selectedTextStyle={{
+          color: "#333333",
+          fontSize: 16,
+        }}
+        itemTextStyle={{
+          color: "#CCCCCC",
+          fontSize: 16,
+        }}
+        onChange={(item) => {
+          onPress?.(item.value);
         }}
       />
     </View>

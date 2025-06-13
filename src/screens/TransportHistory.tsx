@@ -10,17 +10,19 @@ import {
 } from 'react-native';
 import MapView, {
   Polyline,
+  Marker,
   PROVIDER_GOOGLE,
   AnimatedRegion,
-  Animated,
+  // Animated,
 } from 'react-native-maps';
+import { Animated } from 'react-native'
 import {useRoute} from '@react-navigation/native';
 import color from '../config/color';
 import {Svg, Circle} from 'react-native-svg';
 import Icon from 'react-native-vector-icons/AntDesign';
 // @ts-ignore
 import _ from 'lodash';
-import {useDeviceId} from 'shared-logic/src';
+import {useDeviceId} from '../shared-logic';
 import dayjs from "dayjs";
 
 const {width} = Dimensions.get('window');
@@ -156,10 +158,10 @@ const TransportHistory: React.FC<Props> = () => {
     }, 200),
     [],
   );
-
+  const AnimatedMapView = Animated.createAnimatedComponent(MapView);
   return (
     <View style={{flex: 1, backgroundColor: 'white'}}>
-      <Animated
+      <AnimatedMapView
         style={StyleSheet.absoluteFillObject}
         zoomEnabled={true}
         provider={PROVIDER_GOOGLE}
@@ -167,7 +169,7 @@ const TransportHistory: React.FC<Props> = () => {
           debouncedSetLocation(coordinate)
         }
         region={new AnimatedRegion(mapLocation)}>
-        <MapView.Marker.Animated
+        <Marker.Animated
           ref={marker}
           // rotation={dataPos[time].direction - 45}
           coordinate={{
@@ -176,13 +178,13 @@ const TransportHistory: React.FC<Props> = () => {
           }}>
           {/*<EntyIcon name="direction" color={color.yellow} size={15} />*/}
           <Icon name="car" color={color.yellow} size={15} />
-        </MapView.Marker.Animated>
+        </Marker.Animated>
         <Polyline
           coordinates={dataPos}
           strokeWidth={4}
           strokeColor={color.blue}
         />
-      </Animated>
+      </AnimatedMapView>
       <TouchableOpacity
         onPress={() => handlePlay()}
         style={{

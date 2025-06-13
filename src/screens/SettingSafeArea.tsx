@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import {useRoute} from '@react-navigation/native';
 import {useMutation, useQueryCache} from 'react-query';
-import {AlertPolygon, updateDeviceInfo, useDeviceId} from 'shared-logic';
+import {AlertPolygon, updateDeviceInfo, useDeviceId} from '../shared-logic';
 import MapView, {Marker, Polygon, PROVIDER_GOOGLE} from 'react-native-maps';
 // @ts-ignore
 import _ from 'lodash';

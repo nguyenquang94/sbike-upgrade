@@ -1,5 +1,7 @@
-import firebase from 'firebase/app';
+// import firebase from 'firebase/app';
 import 'firebase/messaging';
+import { initializeApp } from 'firebase/app';
+import { getMessaging, isSupported } from 'firebase/messaging';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCCpjv71kBl6noJavE593UrQ2TBuPOX4SU',
@@ -12,11 +14,17 @@ const firebaseConfig = {
   measurementId: 'G-G8ENTK9JX7',
 };
 
-firebase.initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 let messaging: any = null;
 
-if (firebase.messaging.isSupported()) {
-  messaging = firebase.messaging();
-}
+// if (firebase.messaging.isSupported()) {
+//   messaging = firebase.messaging();
+// }
+isSupported().then((supported) => {
+  if (supported) {
+    messaging = getMessaging();
+    // bạn có thể tiếp tục sử dụng messaging ở đây
+  }
+});
 
 export {messaging};

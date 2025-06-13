@@ -9,7 +9,7 @@ import {
   Dimensions,
   TextInput,
 } from 'react-native';
-import {useDeviceId, updateDeviceInfo} from 'shared-logic';
+import {useDeviceId, updateDeviceInfo} from '../shared-logic';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import {default as IconLine} from 'react-native-vector-icons/SimpleLineIcons';
 import {default as Icon5} from 'react-native-vector-icons/FontAwesome5';

@@ -1,9 +1,9 @@
 import React from 'react';
 import {FlatList, Text, TouchableOpacity, View} from 'react-native';
-import {useDeviceByCompany} from 'shared-logic';
+import {useDeviceByCompany} from '../../shared-logic';
 import dayjs from 'dayjs';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import {Device} from 'shared-logic';
+import {Device} from '../../shared-logic';
 import {useNavigation} from '@react-navigation/native';
 import color from '../../config/color';
 import {useAuthState} from '../../context/auth-context';

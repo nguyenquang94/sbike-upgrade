@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
-import {Report} from "shared-logic";
+import {Report} from "../../shared-logic";
 import Icon from "react-native-vector-icons/AntDesign";
 import color from "../../config/color";
 // @ts-ignore

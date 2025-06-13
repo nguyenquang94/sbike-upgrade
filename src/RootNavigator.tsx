@@ -2,9 +2,9 @@ import * as React from 'react';
 import {View, Text, TouchableOpacity, Image} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import AsyncStorage from '@react-native-community/async-storage';
-  import Icon from 'react-native-vector-icons/FontAwesome';
-import {setToken} from 'shared-logic';
+import Storage from "@react-native-async-storage/async-storage";
+import Icon from 'react-native-vector-icons/FontAwesome';
+import {setToken} from './shared-logic';
 import Config from 'react-native-config';
 import SignIn from './screens/SignIn';
 import Home from './screens/Home';
@@ -44,7 +44,7 @@ const AppRoot = () => {
 
   React.useEffect(() => {
     const bootstrapAsync = async () => {
-      AsyncStorage.getItem('userData')
+      Storage.getItem('userData')
         .then((userData) => {
           // dispatch({type: 'RESTORE_TOKEN', userData: {}});
 
@@ -108,6 +108,7 @@ const AppRoot = () => {
       </View>
     );
   }
+  
 
   return (
     <NavigationContainer>
@@ -125,6 +126,7 @@ const AppRoot = () => {
           </TouchableOpacity>)
         }
       }}>
+        
         {state.userData.userToken ? (
           <>
             <Stack.Screen

@@ -11,10 +11,10 @@ import {
 } from 'react-native';
 import MapView, {Marker, Polyline, PROVIDER_GOOGLE} from 'react-native-maps';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import useDeviceCompany from 'shared-logic/src/hooks/useDeviceCompany';
+import useDeviceCompany from '../../shared-logic/hooks/useDeviceCompany';
 import dayjs from 'dayjs';
-import {Device} from 'shared-logic';
-import {getDeviceById} from 'shared-logic';
+import {Device} from '../../shared-logic';
+import {getDeviceById} from '../../shared-logic';
 import {useNavigation} from '@react-navigation/native';
 import Geolocation from '@react-native-community/geolocation';
 // @ts-ignore

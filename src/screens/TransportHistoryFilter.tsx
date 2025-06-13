@@ -7,7 +7,7 @@ import {
   View,
 } from 'react-native';
 import {useNavigation, useRoute} from '@react-navigation/native';
-import {useDeviceId} from "shared-logic";
+import {useDeviceId} from "../shared-logic";
 import color from '../config/color';
 import {HistoryPicker} from '../components/History/HistoryPicker';
 import {
@@ -17,7 +17,7 @@ import {
   getThirtyMinutesAgoRange,
   getTodayRange,
   getYesterdayRange,
-} from 'shared-logic/src';
+} from '../shared-logic';
 import dayjs from 'dayjs';
 // @ts-ignore
 import ActionSheet from 'react-native-actionsheet';

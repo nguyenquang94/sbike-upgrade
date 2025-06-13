@@ -9,7 +9,7 @@ import {
 import {SearchDevice} from './SearchDevice';
 import {HistoryPicker} from '../History/HistoryPicker';
 import dayjs from 'dayjs';
-import {formatToSearch} from 'shared-logic/src';
+import {formatToSearch} from '../../shared-logic';
 import Icon from 'react-native-vector-icons/AntDesign';
 import color from '../../config/color';
 
