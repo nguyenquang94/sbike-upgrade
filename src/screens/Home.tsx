@@ -5,7 +5,7 @@ import Observer from '../components/Home/Observer';
 import Devices from '../components/Home/Devices';
 import Report from "../components/Home/Report";
 import color from '../config/color';
-import messaging from "@react-native-firebase/messaging";
+// import messaging from "@react-native-firebase/messaging";
 import {registerTopic} from "../shared-logic/api/firebase";
 import {useAuthState} from "../context/auth-context";
 
@@ -28,31 +28,31 @@ const Home: React.FC = () => {
   });
 
   useEffect(() => {
-    let isMounted = true;
+    // let isMounted = true;
 
-    async function requestAndRegisterToken() {
-      try {
-        const authStatus = await messaging().requestPermission();
-        const enabled =
-          authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
-          authStatus === messaging.AuthorizationStatus.PROVISIONAL;
+    // async function requestAndRegisterToken() {
+    //   try {
+    //     const authStatus = await messaging().requestPermission();
+    //     const enabled =
+    //       authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
+    //       authStatus === messaging.AuthorizationStatus.PROVISIONAL;
 
-        if (enabled && isMounted) {
-          const token = await messaging().getToken();
+    //     if (enabled && isMounted) {
+    //       const token = await messaging().getToken();
 
-          await registerTopic(userInfo?.companyID || '', token);
-          console.log('FCM topic registered');
-        }
-      } catch (err) {
-        console.log('FCM error:', err);
-      }
-    }
+    //       await registerTopic(userInfo?.companyID || '', token);
+    //       console.log('FCM topic registered');
+    //     }
+    //   } catch (err) {
+    //     console.log('FCM error:', err);
+    //   }
+    // }
 
-    requestAndRegisterToken();
+    // requestAndRegisterToken();
 
-    return () => {
-      isMounted = false;
-    };
+    // return () => {
+    //   isMounted = false;
+    // };
   },[userInfo?.companyID]);
 
   return (

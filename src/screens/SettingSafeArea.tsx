@@ -14,6 +14,7 @@ import MapView, {Marker, Polygon, PROVIDER_GOOGLE} from 'react-native-maps';
 // @ts-ignore
 import _ from 'lodash';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import color from '../config/color';
 
 const {width} = Dimensions.get('window');
 
@@ -121,12 +122,12 @@ export const SettingSafeArea = () => {
         <TouchableOpacity
           style={styles.button}
           onPress={() => resetArea()}>
-          <Text>Đặt lại</Text>
+          <Text style={{color: color.black}}>Đặt lại</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.button}
           onPress={() => !isLoading && updateDevice()}>
-          <Text>Cập nhật</Text>
+          <Text style={{color: color.black}}>Cập nhật</Text>
         </TouchableOpacity>
       </View>
     </View>

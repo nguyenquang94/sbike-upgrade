@@ -118,7 +118,7 @@ const TransportHistoryFilter: React.FC<Props> = ({}) => {
           <TouchableOpacity
             onPress={() => showActionSheet()}
             style={style.input}>
-            <Text>{dataRange}</Text>
+            <Text style={{color: color.black}}>{dataRange}</Text>
           </TouchableOpacity>
         </View>
         <View style={style.row}>

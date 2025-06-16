@@ -84,7 +84,7 @@ export const SettingWarning = () => {
           <IconLine name="speedometer" color={'gold'} size={20} />
           <Text style={styles.label}>Cảnh báo quá tốc độ</Text>
         </View>
-        <Text style={{fontWeight: 'bold', fontSize: 17}}>
+        <Text style={{fontWeight: 'bold', fontSize: 17, color: color.black}}>
           {alertConfig.alertSpeed}km/h
         </Text>
       </TouchableOpacity>
@@ -110,10 +110,10 @@ export const SettingWarning = () => {
               }}>
               <Icon name="close" color={'black'} size={25} />
             </TouchableOpacity>
-            <Text style={{fontWeight: 'bold', textAlign: 'center'}}>
+            <Text style={{fontWeight: 'bold', textAlign: 'center', color: color.black}}>
               Nhập tốc độ giới hạn
             </Text>
-            <Text style={{textAlign: 'center'}}>
+            <Text style={{textAlign: 'center', color: color.black}}>
               (giới hạn: 1 ~ 250km/h)
             </Text>
             <View
@@ -154,7 +154,7 @@ export const SettingWarning = () => {
                   alignItems: 'center',
                   justifyContent: 'center'
                 }}>
-                <Text style={{fontWeight: 'bold', color: 'white'}}>Cập nhật</Text>
+                <Text style={{fontWeight: 'bold', color: 'white',}}>Cập nhật</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -182,6 +182,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 15,
     marginLeft: 10,
+    color: color.black
   },
   centeredView: {
     flex: 1,

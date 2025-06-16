@@ -62,7 +62,7 @@ const DeviceInformation: React.FC<Props> = ({}) => {
         }}>
         <TouchableOpacity onPress={() => navigation.navigate('TransportHistoryFilter', {deviceId})} style={style.tool}>
           <Icon name={'road'} size={50} color={color.blue} />
-          <Text>Lộ trình</Text>
+          <Text style={{color: color.black}}>Lộ trình</Text>
         </TouchableOpacity>
         <View style={style.tool}>
           <ToggleSwitch
@@ -74,11 +74,11 @@ const DeviceInformation: React.FC<Props> = ({}) => {
             size="large"
             onToggle={(isOn: boolean) => updateDevice('isSettingEngineOn', isOn)}
           />
-          <Text style={{marginTop: 11}}>Tắt, bật máy</Text>
+          <Text style={{marginTop: 11, color: color.black}}>Tắt, bật máy</Text>
         </View>
         <TouchableOpacity onPress={() => navigation.navigate('SettingWarning', {deviceId})} style={style.tool}>
           <EntypoIcon name={'warning'} size={50} color={'black'} />
-          <Text>Cảnh báo</Text>
+          <Text style={{color: color.black}}>Cảnh báo</Text>
         </TouchableOpacity>
       </View>
       <View style={style.wrapper}>

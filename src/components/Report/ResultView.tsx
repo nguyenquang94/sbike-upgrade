@@ -2,6 +2,7 @@ import React from 'react';
 import {View, FlatList, Text, TouchableOpacity} from 'react-native';
 import {Report} from 'shared-logic/src';
 import dayjs from 'dayjs';
+import color from '../../config/color';
 
 type Props = {
   data: Array<any>;
@@ -33,10 +34,10 @@ export const ResultView: React.FC<Props> = ({
         }}
         onPress={() => chooseTime(item)}>
         <View>
-          <Text>{dayjs(item.time).format('HH:mm:ss DD/MM/YYYY')}</Text>
-          {displaySpeed && <Text>{item.position.speed}km/h</Text>}
+          <Text style={{color: color.black}}>{dayjs(item.time).format('HH:mm:ss DD/MM/YYYY')}</Text>
+          {displaySpeed && <Text style={{color: color.black}}>{item.position.speed}km/h</Text>}
         </View>
-        <Text style={{fontWeight: 'bold', lineHeight: 20, fontSize: 15}}>
+        <Text style={{fontWeight: 'bold', color: color.black, lineHeight: 20, fontSize: 15}}>
           {item.message}
         </Text>
       </TouchableOpacity>

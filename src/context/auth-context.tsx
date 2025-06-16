@@ -66,14 +66,14 @@ const AuthProvider: FC<Props> = ({ children }) => {
     }
   );
 
-  const handleLogin = (username: string, password: string) => {
+  const handleLogin = async (username: string, password: string) => {
     const key = CryptoJS.enc.Utf8.parse("{60F9sG3*vpfCknu");
     const iv = CryptoJS.enc.Utf8.parse("0123456789123456");
     login({
       userName: username,
       password: password ? AES.encrypt(password, key, { iv }).toString() : "",
     })
-      .then((data) => data.data)
+      .then((data: any) => data)
       .then(async (data) => {
         if (data?.errorCode) {
           dispatch({ type: "SIGN_OUT" });

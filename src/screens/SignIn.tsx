@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Text, View, SafeAreaView, TouchableOpacity, Image} from 'react-native';
 import InputText from '../components/InputText';
 import color from '../config/color';
@@ -7,8 +7,8 @@ import {useAuthState} from '../context/auth-context';
 import Spinner from 'react-native-loading-spinner-overlay';
 
 const SignIn: React.FC = () => {
-  const [username, setUsername] = React.useState('');
-  const [password, setPassword] = React.useState('');
+  const [username, setUsername] = React.useState('SuperAdmin');
+  const [password, setPassword] = React.useState('123@123aA');
 
   const {signIn, dispatch, state} = useAuthState();
 

@@ -54,7 +54,7 @@ const AppRoot = () => {
               fetch(`${Config.API_URL}/User/Getinfo`, {
                 method: 'get',
                 headers: new Headers({
-                  API_KEY: user.userToken,
+                  X_API_KEY: user.userToken,
                 }),
               }).then((res) => {
                 if (res.status === 200) {

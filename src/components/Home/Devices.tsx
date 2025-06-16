@@ -36,17 +36,17 @@ const Devices: React.FC<Props> = ({}) => {
           alignItems: 'center',
         }}>
         <View>
-          <Text style={{fontSize: 14, fontWeight: 'bold', paddingBottom: 3}}>
+          <Text style={{fontSize: 14, fontWeight: 'bold', paddingBottom: 3, color: color.black}}>
             {item.carNumber}
           </Text>
-          <Text style={{fontSize: 13}}>
+          <Text style={{fontSize: 13, color: color.black}}>
             {item?.position?.deviceTime
               ? dayjs(item.position.deviceTime).format('HH:mm DD/MM/YYYY')
               : ''}
           </Text>
         </View>
         <View style={{flexDirection: 'row'}}>
-          <Text style={{marginRight: 5, fontSize: 16, lineHeight: 24}}>
+          <Text style={{marginRight: 5, fontSize: 16, lineHeight: 24, color: color.black}}>
             {item.deviceID}
           </Text>
           <Icon name="chevron-right" color={color.yellow} size={25} />

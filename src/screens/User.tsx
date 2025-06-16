@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Entypo';
 import {useAuthState} from '../context/auth-context';
-
+import color from '../config/color';
 type Props = {};
 
 const User: React.FC<Props> = ({}) => {
@@ -12,18 +12,18 @@ const User: React.FC<Props> = ({}) => {
   return (
     <View style={{flex: 1, backgroundColor: 'white'}}>
       <View style={{...style.row, height: 60}}>
-        <Text>Họ & Tên: </Text>
-        <Text>{userInfo.fullName}</Text>
+        <Text style={{color: color.black}}>Họ & Tên: </Text>
+        <Text style={{color: color.black}}>{userInfo.fullName}</Text>
       </View>
       <View style={{...style.row, height: 50}}>
         <Icon name="key" color={'red'} size={25} />
-        <Text style={{marginLeft: 15}}>Đổi mật khẩu</Text>
+        <Text style={{marginLeft: 15, color: color.black}}>Đổi mật khẩu</Text>
       </View>
       <TouchableOpacity
         onPress={() => signOut()}
         style={{...style.row, height: 50}}>
         <Icon name="log-out" color={'red'} size={25} />
-        <Text style={{marginLeft: 15}}>Đăng xuất</Text>
+        <Text style={{marginLeft: 15, color: color.black}}>Đăng xuất</Text>
       </TouchableOpacity>
     </View>
   );

@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import dayjs from 'dayjs';
+import color from '../../config/color';
 
 type Props = {
   chooseDate: Function,
@@ -19,7 +20,7 @@ export const HistoryPicker: React.FC<Props> = ({chooseDate, dateChoice}) => {
   return (
     <View>
       <TouchableOpacity onPress={() => setPickerVisible(true)} style={style.input} >
-        <Text style={{ fontSize: 16}}>
+        <Text style={{ fontSize: 16, color: color.black}}>
           {dayjs(dateChoice).format('DD/MM/YYYY HH:mm')}
         </Text>
       </TouchableOpacity>

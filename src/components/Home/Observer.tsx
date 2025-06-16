@@ -318,7 +318,7 @@ const Observer: React.FC<Props> = ({}) => {
             justifyContent: 'center',
             borderRadius: 5,
           }}>
-          <Text style={{textAlign: 'center', fontWeight: 'bold'}}>Chọn xe</Text>
+          <Text style={{textAlign: 'center', fontWeight: 'bold', color: color.black}}>Chọn xe</Text>
         </View>
       </TouchableOpacity>
       {states.deviceLocation.latitude && states.allowPermission ? (
@@ -385,15 +385,15 @@ const Observer: React.FC<Props> = ({}) => {
             </Text>
             <View style={styles.tableRow}>
               <View style={styles.tableCol}>
-                <Text>Biển số</Text>
+                <Text style={{color: color.black}}>Biển số</Text>
               </View>
               <View style={styles.tableCol}>
-                <Text>Vận tốc</Text>
-                <Text>(Km/h)</Text>
+                <Text style={{color: color.black}}>Vận tốc</Text>
+                <Text style={{color: color.black}}>(Km/h)</Text>
               </View>
               <View style={styles.tableCol}>
-                <Text>Thời gian</Text>
-                <Text>(HH:mm)</Text>
+                <Text style={{color: color.black}}>Thời gian</Text>
+                <Text style={{color: color.black}} >(HH:mm)</Text>
               </View>
               <View style={styles.tableCol}>
                 <Icon name="align-justify" color={'black'} size={25} />
@@ -465,6 +465,7 @@ const styles = StyleSheet.create({
   },
   textTable: {
     textAlign: 'center',
+    color: color.black
   },
 });
 

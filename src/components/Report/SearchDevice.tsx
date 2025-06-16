@@ -41,11 +41,9 @@ export const SearchDevice: React.FC<Props> = ({ onPress, deviceChoice }) => {
         valueField="value"
         value={deviceChoice}
         style={{
-          borderColor: "#999",
-          borderWidth: 1,
           borderRadius: 8,
           paddingHorizontal: 12,
-          height: 50,
+          
         }}
         placeholder=""
         selectedTextStyle={{
