@@ -37,7 +37,7 @@ const Devices: React.FC<Props> = ({}) => {
         }}>
         <View>
           <Text style={{fontSize: 14, fontWeight: 'bold', paddingBottom: 3, color: color.black}}>
-            {item.carNumber}
+            {item.carNumber ?? ''}
           </Text>
           <Text style={{fontSize: 13, color: color.black}}>
             {item?.position?.deviceTime

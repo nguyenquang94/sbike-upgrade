@@ -13,7 +13,7 @@ import MapView, {Marker, Polyline, PROVIDER_GOOGLE} from 'react-native-maps';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import useDeviceCompany from '../../shared-logic/hooks/useDeviceCompany';
 import dayjs from 'dayjs';
-import {Device} from '../../shared-logic';
+import {Device, getDeviceByCompany, getDevicesByCompanyID} from '../../shared-logic';
 import {getDeviceById} from '../../shared-logic';
 import {useNavigation} from '@react-navigation/native';
 import Geolocation from '@react-native-community/geolocation';
@@ -380,6 +380,7 @@ const Observer: React.FC<Props> = ({}) => {
                 fontWeight: 'bold',
                 textAlign: 'center',
                 marginBottom: 20,
+                color: color.black
               }}>
               Danh sách xe
             </Text>

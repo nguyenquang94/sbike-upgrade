@@ -3,6 +3,7 @@ import { useAuthState } from "../../context/auth-context";
 import useDeviceCompany from "../../shared-logic/hooks/useDeviceCompany";
 import { Dropdown } from "react-native-element-dropdown";
 import { View } from "react-native";
+import color from "../../config/color";
 
 export interface Props {
   onPress?: (id: string) => void;
@@ -51,7 +52,7 @@ export const SearchDevice: React.FC<Props> = ({ onPress, deviceChoice }) => {
           fontSize: 16,
         }}
         itemTextStyle={{
-          color: "#CCCCCC",
+          color: color.black,
           fontSize: 16,
         }}
         onChange={(item) => {

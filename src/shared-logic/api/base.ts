@@ -1,4 +1,5 @@
 import {default as axios, AxiosInstance} from 'axios';
+import log from '../../../logger';
 export let secureInstance: AxiosInstance;
 
 export function setSecureAxiosInstance(baseURL: string) {
@@ -17,9 +18,32 @@ export function setSecureAxiosInstance(baseURL: string) {
       return true;
     },
   });
+// Log request
+secureInstance.interceptors.request.use((config) => {
+  const method = config.method?.toUpperCase() || 'GET';
+  const url = `${config.baseURL}${config.url}`;
+  const headers = config.headers || {};
+  const data = config.data;
+
+  const curlParts = [
+    `curl -X ${method}`,
+    `'${url}'`,
+    ...Object.entries(headers).map(([k, v]) => `-H '${k}: ${v}'`),
+    data
+      ? `--data '${typeof data === 'string' ? data : JSON.stringify(data)}'`
+      : '',
+  ];
+
+  const curl = curlParts.join(' \\\n  ');
+  console.log('[cURL]\n', curl); // hoặc log.info nếu dùng react-native-logs
+
+  return config;
+});
 
   secureInstance.interceptors.response.use(
     function (response) {
+      log.debug(`[RESPONSE] ${response.status} ${response.config.url}`);
+      log.debug(`Data: ${JSON.stringify(response.data)}`);
       if (response.status !== 200) {
         if (response.status === 401) {
           if (window) {
@@ -36,6 +60,7 @@ export function setSecureAxiosInstance(baseURL: string) {
       return response;
     },
     function (error) {
+      log.error(`[ERROR] ${error}`);
       return Promise.reject(error);
     },
   );
@@ -43,6 +68,10 @@ export function setSecureAxiosInstance(baseURL: string) {
 
 export function setToken(session: string): void {
   secureInstance.defaults.headers = {
-    X_API_KEY: session,
+    'X-API-KEY': session,
   };
 }
+// export function setToken(session: string): void {
+//   // secureInstance.defaults.headers.common['Content-Type'] = 'application/json';
+//   secureInstance.defaults.headers.common['X-API-KEY'] = session;
+// }
