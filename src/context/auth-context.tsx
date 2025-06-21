@@ -7,6 +7,7 @@ import CryptoJS from "react-native-crypto-js";
 import messaging from "@react-native-firebase/messaging";
 import { User } from "../shared-logic";
 import Storage from "@react-native-async-storage/async-storage";
+import { Alert } from "react-native";
 type AuthType = {
   state: any;
   dispatch: any;
@@ -70,7 +71,7 @@ const AuthProvider: FC<Props> = ({ children }) => {
     const key = CryptoJS.enc.Utf8.parse("{60F9sG3*vpfCknu");
     const iv = CryptoJS.enc.Utf8.parse("0123456789123456");
     login({
-      userName: username,
+      userName: username?.toLocaleLowerCase(),
       password: password ? AES.encrypt(password, key, { iv }).toString() : "",
     })
       .then((data: any) => data)
@@ -78,7 +79,7 @@ const AuthProvider: FC<Props> = ({ children }) => {
         if (data?.errorCode) {
           dispatch({ type: "SIGN_OUT" });
           setTimeout(() => {
-            alert(data.message);
+            Alert.alert(data.message);
           }, 1000);
         } else {
           // @ts-ignore
@@ -108,7 +109,7 @@ const AuthProvider: FC<Props> = ({ children }) => {
       .catch((error) => {
         dispatch({ type: "SIGN_OUT" });
         setTimeout(() => {
-          // alert(error.message);
+          Alert.alert(error.message);
         }, 100);
       });
   };

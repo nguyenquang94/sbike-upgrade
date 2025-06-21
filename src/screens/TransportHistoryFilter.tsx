@@ -1,5 +1,6 @@
 import React, {useRef, useState} from 'react';
 import {
+  Alert,
   ScrollView,
   StyleSheet,
   Text,
@@ -53,17 +54,17 @@ const TransportHistoryFilter: React.FC<Props> = ({}) => {
             if (data.length > 0) {
               navigation.navigate('TransportHistory', {data, deviceId});
             } else {
-              alert('Không có dữ liệu');
+              Alert.alert('Không có dữ liệu');
             }
           })
           .catch((error) => {
             console.log(error);
           });
       } else {
-        alert('Xin chọn khoảng thời gian tối đa 5 ngày')
+        Alert.alert('Xin chọn khoảng thời gian tối đa 5 ngày')
       }
     } else {
-      alert('Thời điểm không hợp lệ')
+      Alert.alert('Thời điểm không hợp lệ')
     }
   };
 

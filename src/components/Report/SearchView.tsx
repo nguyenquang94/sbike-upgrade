@@ -5,6 +5,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
+  Alert,
 } from 'react-native';
 import {SearchDevice} from './SearchDevice';
 import {HistoryPicker} from '../History/HistoryPicker';
@@ -31,10 +32,10 @@ export const SearchView: FC<Props> = ({onSearch}) => {
         const range = formatToSearch([start, end]);
         onSearch(deviceId, range[0], range[1]);
       } else {
-        alert('Thời điểm không hợp lệ');
+        Alert.alert('Thời điểm không hợp lệ');
       }
     } else {
-      alert('chưa chọn thiết bị');
+      Alert.alert('chưa chọn thiết bị');
     }
   };
 

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {SearchView} from '../components/Report/SearchView';
-import {ScrollView} from 'react-native';
+import {Alert, ScrollView} from 'react-native';
 import {getReportList} from '../shared-logic/api/report';
 import {ResultView} from "../components/Report/ResultView";
 import MapPosition from "../components/Report/MapPosition";
@@ -18,7 +18,7 @@ export const OnOffReport = () => {
       })
       .catch((error) => {
         console.log(error);
-        alert('có lỗi xảy ra');
+        Alert.alert('có lỗi xảy ra');
       });
   };
 

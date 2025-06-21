@@ -8,6 +8,7 @@ import {
   Modal,
   Dimensions,
   TextInput,
+  Alert,
 } from 'react-native';
 import {useDeviceId, updateDeviceInfo} from '../shared-logic';
 import {useNavigation, useRoute} from '@react-navigation/native';
@@ -142,7 +143,7 @@ export const SettingWarning = () => {
                       setModalVisible(false);
                     }, 100);
                   } else {
-                    alert('Giá trị không hợp lệ');
+                    Alert.alert('Giá trị không hợp lệ');
                   }
                 }}
                 style={{

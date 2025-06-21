@@ -59,7 +59,7 @@ export const SettingSafeArea = () => {
         [{text: 'OK', onPress: () => console.log('OK Pressed')}],
         {cancelable: true},
       ),
-    onError: () => alert('có lỗi xảy ra, vui lòng thử lại'),
+    onError: () => Alert.alert('có lỗi xảy ra, vui lòng thử lại'),
     onSettled: () => {
       queryCache.invalidateQueries(['deviceId', deviceId]);
     },

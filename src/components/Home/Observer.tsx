@@ -8,6 +8,7 @@ import {
   Dimensions,
   FlatList,
   Platform,
+  Alert,
 } from 'react-native';
 import MapView, {Marker, Polyline, PROVIDER_GOOGLE} from 'react-native-maps';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -173,7 +174,7 @@ const Observer: React.FC<Props> = ({}) => {
         }
       })
       .catch(() => {
-        alert('không tìm thấy vị trí');
+        Alert.alert('không tìm thấy vị trí');
       });
   };
 

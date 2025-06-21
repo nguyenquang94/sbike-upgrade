@@ -86,30 +86,30 @@ const AppRoot = () => {
     bootstrapAsync();
   }, []);
 
-  if (state.isLoading) {
-    return (
-      <View
-        style={{
-          width: '100%',
-          height: '100%',
-          backgroundColor: 'white',
-          alignContent: 'center',
-          justifyContent: 'center',
-        }}>
-        <Text
-          style={{
-            fontWeight: 'bold',
-            color: 'blue',
-            fontSize: 25,
-            textAlign: 'center',
-          }}>
-          SBIKE
-        </Text>
-      </View>
-    );
-  }
+  // if (state.isLoading) {
+  //   return (
+  //     <View
+  //       style={{
+  //         width: '100%',
+  //         height: '100%',
+  //         backgroundColor: 'white',
+  //         alignContent: 'center',
+  //         justifyContent: 'center',
+  //       }}>
+  //       <Text
+  //         style={{
+  //           fontWeight: 'bold',
+  //           color: 'blue',
+  //           fontSize: 25,
+  //           textAlign: 'center',
+  //         }}>
+  //         CONTRACK
+  //       </Text>
+  //     </View>
+  //   );
+  // }
   
-
+  if (state.isLoading) return <></>
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={(props) => {
@@ -137,12 +137,12 @@ const AppRoot = () => {
                   headerLeft: () => (
                     <View style={{marginLeft: 15}}>
                       <Image
-                        source={require('../src/assets/images/LogoApp.png')}
+                        source={require('../src/assets/images/LogoApp.jpeg')}
                         style={{width: 30, height: 30}}
                       />
                     </View>
                   ),
-                  headerTitle: 'Sbike',
+                  headerTitle: 'Contrack',
                   headerRight: () => (
                     <View style={{flexDirection: 'row', paddingRight: 10}}>
                       <TouchableOpacity

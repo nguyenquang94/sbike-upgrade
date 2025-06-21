@@ -26,16 +26,16 @@ const SignIn: React.FC = () => {
       <View>
         <View style={{ alignItems: 'center', paddingVertical: 50}}>
           <View style={{backgroundColor: 'white', width: 150, height: 150, borderRadius: 75, alignItems: 'center', justifyContent: 'center'}}>
-            <Image style={{width: 100, height: 100}} source={require('../assets/images/LogoApp.png')} width={100} height={100}/>
+            <Image style={{width: 100, height: 100}} source={require('../assets/images/LogoApp.jpeg')} width={100} height={100}/>
           </View>
         </View>
         <InputText
-          label={'username'}
+          label={'Username'}
           onChangeText={(val) => setUsername(val)}
           keyboardType='default'
         />
         <InputText
-          label={'password'}
+          label={'Password'}
           onChangeText={(val) => setPassword(val)}
           keyboardType='default'
           secureTextEntry={true}

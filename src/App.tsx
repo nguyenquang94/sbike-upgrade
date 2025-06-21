@@ -6,8 +6,9 @@ import SplashScreen from 'react-native-splash-screen';
 
 import RootNavigator from './RootNavigator';
 import {AuthProvider} from './context/auth-context';
+import { Platform } from "react-native";
 
-setupBusinessLayer('https://sbike-api.devbt.com/api');
+setupBusinessLayer(Platform.OS == 'ios' ? 'https://sbike-api.devbt.com/api' : 'http://sbike-api.devbt.com/api');
 export default function App() {
   React.useEffect(() => {
     SplashScreen.hide();
