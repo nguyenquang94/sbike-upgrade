@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import Config from 'react-native-config';
 import {setupBusinessLayer} from './shared-logic';
 import SplashScreen from 'react-native-splash-screen';
-import messaging from '@react-native-firebase/messaging';
+// import messaging from '@react-native-firebase/messaging';
 
 import RootNavigator from './RootNavigator';
 import {AuthProvider} from './context/auth-context';
 
-// setupBusinessLayer(Config.API_URL);
+setupBusinessLayer('https://sbike-api.devbt.com/api');
 export default function App() {
   React.useEffect(() => {
     SplashScreen.hide();

@@ -271,7 +271,7 @@ const Observer: React.FC<Props> = ({}) => {
       <MapView
         style={StyleSheet.absoluteFillObject}
         zoomEnabled={true}
-        provider={PROVIDER_GOOGLE}
+        // provider={PROVIDER_GOOGLE}
         region={states.mapLocation}
         onRegionChange={(coordinate) => {
           if (coordinate.latitudeDelta < 1 && coordinate.latitudeDelta < 1) {

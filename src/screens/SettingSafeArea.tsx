@@ -89,7 +89,7 @@ export const SettingSafeArea = () => {
   return (
     <View style={styles.container}>
       <MapView
-        provider={PROVIDER_GOOGLE}
+        // provider={PROVIDER_GOOGLE}
         style={styles.map}
         region={mapLocation}
         onRegionChange={(coordinate) => debouncedSetLocation(coordinate)}

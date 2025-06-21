@@ -63,7 +63,7 @@ const MapPosition: React.FC<Props> = ({positionInfo}) => {
           region={mapLocation}
           style={StyleSheet.absoluteFillObject}
           zoomEnabled={true}
-          provider={PROVIDER_GOOGLE}
+          // provider={PROVIDER_GOOGLE}
           onRegionChange={(coordinate: Coordinate) => {
             if (coordinate.latitudeDelta < 1 && coordinate.latitudeDelta < 1) {
               debouncedSetLocation(coordinate)

@@ -114,34 +114,34 @@ const AuthProvider: FC<Props> = ({ children }) => {
   };
 
   const handleLogout = () => {
-    messaging()
-      .getToken()
-      .then((token) => {
-        logout(token).then(async () => {
-          // Storage.removeItem('userData').then(() => {
-          //   dispatch({type: 'SIGN_OUT'});
-          // });
-          try {
-            await Storage.removeItem('userData');
-            dispatch({ type: 'SIGN_OUT' });
-          } catch (error) {
-            console.error('Failed to remove userData:', error);
-          }
-        });
-      })
-      .catch(() => {
-        logout("").then( async() => {
-          // Storage.removeItem('userData').then(() => {
-          //   dispatch({type: 'SIGN_OUT'});
-          // });
-          try {
-            await Storage.removeItem('userData');
-            dispatch({ type: 'SIGN_OUT' });
-          } catch (error) {
-            console.error('Failed to remove user data:', error);
-          }
-        });
-      });
+    // messaging()
+    //   .getToken()
+    //   .then((token) => {
+    //     logout(token).then(async () => {
+    //       // Storage.removeItem('userData').then(() => {
+    //       //   dispatch({type: 'SIGN_OUT'});
+    //       // });
+    //       try {
+    //         await Storage.removeItem('userData');
+    //         dispatch({ type: 'SIGN_OUT' });
+    //       } catch (error) {
+    //         console.error('Failed to remove userData:', error);
+    //       }
+    //     });
+    //   })
+    //   .catch(() => {
+    //     logout("").then( async() => {
+    //       // Storage.removeItem('userData').then(() => {
+    //       //   dispatch({type: 'SIGN_OUT'});
+    //       // });
+    //       try {
+    //         await Storage.removeItem('userData');
+    //         dispatch({ type: 'SIGN_OUT' });
+    //       } catch (error) {
+    //         console.error('Failed to remove user data:', error);
+    //       }
+    //     });
+    //   });
   };
 
   return (

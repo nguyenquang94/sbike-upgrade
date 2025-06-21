@@ -164,7 +164,7 @@ const TransportHistory: React.FC<Props> = () => {
       <AnimatedMapView
         style={StyleSheet.absoluteFillObject}
         zoomEnabled={true}
-        provider={PROVIDER_GOOGLE}
+        // provider={PROVIDER_GOOGLE}
         onRegionChange={(coordinate: Coordinate) =>
           debouncedSetLocation(coordinate)
         }
