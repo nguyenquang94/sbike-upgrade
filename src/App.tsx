@@ -8,6 +8,7 @@ import RootNavigator from './RootNavigator';
 import {AuthProvider} from './context/auth-context';
 import { Platform } from "react-native";
 
+
 setupBusinessLayer(Platform.OS == 'ios' ? 'https://sbike-api.devbt.com/api' : 'http://sbike-api.devbt.com/api');
 export default function App() {
   React.useEffect(() => {
@@ -15,58 +16,33 @@ export default function App() {
   }, []);
 
   // useEffect(() => {
-  //   // Assume a message-notification contains a "type" property in the data payload of the screen to open
-
-  //   messaging().onNotificationOpenedApp(remoteMessage => {
-  //     //on open
-  //     console.log(remoteMessage);
+  //   // 1. Khi app đang foreground
+  //   const unsubscribeOnMessage = messaging().onMessage(async remoteMessage => {
+  //     console.log('🔔 Foreground notification:', remoteMessage);
+  //     // TODO: Hiển thị local notification nếu cần
   //   });
 
-  //   // Check whether an initial notification is available
-  //   messaging()
-  //     .getInitialNotification()
-  //     .then(remoteMessage => {
-  //       if (remoteMessage) {
-  //         console.log(
-  //           'Notification caused app to open from quit state:',
-  //           remoteMessage.notification,
-  //         );
-  //         console.log(remoteMessage);
-  //       }
-  //     });
-  // }, []);
-
-  // useEffect(() => {
-  //   // Khi user nhấn vào notification (app đang ở background)
+  //   // 2. Khi app đang background và user nhấn vào notification
   //   const unsubscribeOnOpened = messaging().onNotificationOpenedApp(remoteMessage => {
-  //     console.log('App opened from background via notification:', remoteMessage);
+  //     console.log('🚀 App opened from background via notification:', remoteMessage);
   //     // TODO: điều hướng nếu cần
   //   });
 
-  //   // Khi app khởi động từ trạng thái bị kill
+  //   // 3. Khi app được mở từ trạng thái bị kill do người dùng nhấn vào notification
   //   messaging()
   //     .getInitialNotification()
   //     .then(remoteMessage => {
   //       if (remoteMessage) {
-  //         console.log('App launched from quit state via notification:', remoteMessage);
+  //         console.log('🔥 App launched from quit state via notification:', remoteMessage);
   //         // TODO: điều hướng nếu cần
   //       }
   //     });
 
+  //   // Clear listener khi unmount
   //   return () => {
+  //     unsubscribeOnMessage();
   //     unsubscribeOnOpened();
   //   };
-  // }, []);
-
-
-  // useEffect(() => {
-  //   // Khi app đang mở (foreground)
-  //   const unsubscribeOnMessage = messaging().onMessage(async remoteMessage => {
-  //     console.log('Foreground notification:', remoteMessage);
-  //     // TODO: Hiển thị custom local notification nếu cần
-  //   });
-
-  //   return unsubscribeOnMessage;
   // }, []);
 
   return (

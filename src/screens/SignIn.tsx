@@ -5,12 +5,31 @@ import color from '../config/color';
 import {useAuthState} from '../context/auth-context';
 // @ts-ignore
 import Spinner from 'react-native-loading-spinner-overlay';
-
+import Storage from "@react-native-async-storage/async-storage";
 const SignIn: React.FC = () => {
-  const [username, setUsername] = React.useState('SuperAdmin');
-  const [password, setPassword] = React.useState('123@123aA');
+  const [username, setUsername] = React.useState('');
+  const [password, setPassword] = React.useState('');
 
   const {signIn, dispatch, state} = useAuthState();
+
+  const getLoginInfo = async () => {
+  try {
+    const value = await Storage.getItem('loginInfo');
+
+    if (value !== null) {
+      const { username, password } = JSON.parse(value);
+      // Dùng để fill vào form đăng nhập
+      setUsername(username);
+      setPassword(password);
+    }
+  } catch (error) {
+    console.error('Lỗi khi lấy thông tin:', error);
+  }
+};
+
+  useEffect(() => {
+    getLoginInfo();
+  },[]);
 
   return (
     <SafeAreaView
@@ -31,11 +50,13 @@ const SignIn: React.FC = () => {
         </View>
         <InputText
           label={'Username'}
+          val={username}
           onChangeText={(val) => setUsername(val)}
           keyboardType='default'
         />
         <InputText
           label={'Password'}
+          val={password}
           onChangeText={(val) => setPassword(val)}
           keyboardType='default'
           secureTextEntry={true}

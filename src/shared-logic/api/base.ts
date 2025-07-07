@@ -67,11 +67,6 @@ secureInstance.interceptors.request.use((config) => {
 }
 
 export function setToken(session: string): void {
-  secureInstance.defaults.headers = {
-    'X-API-KEY': session,
-  };
+    secureInstance.defaults.headers.common['Content-Type'] = 'application/json';
+  secureInstance.defaults.headers.common['X-API-KEY'] = session;
 }
-// export function setToken(session: string): void {
-//   // secureInstance.defaults.headers.common['Content-Type'] = 'application/json';
-//   secureInstance.defaults.headers.common['X-API-KEY'] = session;
-// }

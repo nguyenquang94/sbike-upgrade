@@ -7,6 +7,7 @@ type Props = {
   style?: any;
   onChangeText?: (text: string) => void;
   other?: any;
+  val?: string;
   secureTextEntry?: boolean;
 };
 
@@ -17,12 +18,14 @@ const InputText: React.FC<Props> = ({
   secureTextEntry,
   onChangeText,
   other,
+val
 }) => {
   return (
     <View>
       <View style={styles.item}>
         <TextInput
           {...other}
+          value={val}
           placeholder={label}
           placeholderTextColor={'grey'}
           onChangeText={(val) => onChangeText?.(val)}

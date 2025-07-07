@@ -21,7 +21,6 @@ import {SpeedReport} from "./screens/SpeedReport";
 import {OnOffReport} from "./screens/OnOffReport";
 import {SettingWarning} from "./screens/SettingWarning";
 import {SettingSafeArea} from "./screens/SettingSafeArea";
-
 export type MainStackParamList = {
   Home: undefined;
   SignIn: undefined;

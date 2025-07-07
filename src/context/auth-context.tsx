@@ -98,6 +98,10 @@ const AuthProvider: FC<Props> = ({ children }) => {
           //   });
           try {
             await Storage.setItem("userData", JSON.stringify(userData));
+            await Storage.setItem(
+              "loginInfo",
+              JSON.stringify({ username, password })
+            );
             setToken(userData?.userToken || "");
             dispatch({ type: "SIGN_IN", userData });
           } catch (err) {
@@ -115,13 +119,18 @@ const AuthProvider: FC<Props> = ({ children }) => {
   };
 
   const handleLogout = () => {
+    logout("").then(async () => {
+      try {
+        await Storage.removeItem("userData");
+        dispatch({ type: "SIGN_OUT" });
+      } catch (error) {
+        console.error("Failed to remove user data:", error);
+      }
+    });
     // messaging()
     //   .getToken()
-    //   .then((token) => {
+    //   .then(async (token) => {
     //     logout(token).then(async () => {
-    //       // Storage.removeItem('userData').then(() => {
-    //       //   dispatch({type: 'SIGN_OUT'});
-    //       // });
     //       try {
     //         await Storage.removeItem('userData');
     //         dispatch({ type: 'SIGN_OUT' });
