@@ -156,6 +156,12 @@ const DeviceInformation: React.FC<Props> = ({}) => {
             {deviceInfo?.position?.longitude || ""}
           </Text>
         </View>
+        <View style={style.row}>
+          <Text style={style.label}>Mức Pin</Text>
+          <Text style={style.value}>
+            {`${deviceInfo?.batteryPercent ? deviceInfo?.batteryPercent : 0}/100`}
+          </Text>
+        </View>
         <View style={{flexDirection: 'row', justifyContent: 'space-between', minHeight: 60, padding: 12}}>
           <View style={{ flex: 1}}>
             <Text style={style.label}>{`Địa chỉ (gần đúng)`}</Text>
